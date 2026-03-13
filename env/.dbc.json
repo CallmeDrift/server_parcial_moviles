@@ -1,0 +1,8 @@
+{
+  "JSON_USER": {
+    "PATH": "database/users.json"
+  },
+  "JSON_REPORT": {
+    "PATH": "database/reports.json"
+  }
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1",
+    "nombre": "Zapatos Nike",
+    "vendedor": "Nike Store",
+    "calificacion": 4.5,
+    "imagen": "https://picsum.photos/200"
+  },
+  {
+    "id": "2",
+    "nombre": "Adidas Ultraboost",
+    "vendedor": "Adidas",
+    "calificacion": 4.7,
+    "imagen": "https://picsum.photos/201"
+  },
+  {
+    "id": "3",
+    "nombre": "Puma Runner",
+    "vendedor": "Puma",
+    "calificacion": 4.3,
+    "imagen": "https://picsum.photos/202"
+  }
+]

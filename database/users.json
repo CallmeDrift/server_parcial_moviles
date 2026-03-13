@@ -1,0 +1,11 @@
+[
+  {
+    "id": "1",
+    "names": "Diego",
+    "surnames": "Suarez",
+    "role": "admin",
+    "email": "callmedrift@gmail.com",
+    "passwordHash": "$2b$10$NZs2kPAAtguMLStS.gs7ceBBCQWJ3utaMCqE.lBePzbrWBM6z9dWa",
+    "createdAt": "20-02-2026"
+  }
+]
