@@ -1,7 +1,6 @@
 import AbstractGeneralRouter from "../../../../domain/api/AbstractGeneralRouter";
 import AuthController from "../controller/AuthController";
 import authMiddleware from "../middleware/AuthMiddleware";
-import JwtProvider from "../../../../../shared/infrastructure/security/JwtProvider";
 import db from "../../../../../shared/infrastructure/dbc/Database";
 
 export default class GeneralRouter extends AbstractGeneralRouter {
@@ -10,12 +9,10 @@ export default class GeneralRouter extends AbstractGeneralRouter {
     private readonly authController: AuthController,
   ) {
     super("");
-
     this.routes();
   }
 
   protected override routes(): void {
-
     this.router.post("/login", (req, res) =>
       this.authController.login(req, res)
     );
@@ -58,7 +55,6 @@ export default class GeneralRouter extends AbstractGeneralRouter {
             if (err) {
               return res.status(500).json({ error: "Error BD" });
             }
-
             console.log("Favorito agregado:", articulo_id);
             res.status(201).json({
               message: "Favorito guardado"
@@ -96,27 +92,20 @@ export default class GeneralRouter extends AbstractGeneralRouter {
       "/favoritos/:articuloId",
       authMiddleware,
       (req: any, res) => {
-
         const articuloId = req.params.articuloId;
         const userId = req.userId;
-
         db.run(
           "DELETE FROM favoritos WHERE user_id = ? AND articulo_id = ?",
           [userId, articuloId],
           function (err) {
-
             if (err) {
               return res.status(500).json({ error: "Error eliminando favorito" });
             }
-
             console.log("Favorito eliminado:", articuloId);
-
             res.json({ message: "Favorito eliminado" });
-
           }
         );
       }
     );
-
   }
 }

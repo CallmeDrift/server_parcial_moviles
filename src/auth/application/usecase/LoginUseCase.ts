@@ -13,12 +13,9 @@ export default class LoginUseCase implements LoginUseCasePort {
 
   async login(email: string, password: string): Promise<string | null> {
     const user: User | NullUser = await this.userService.findByEmail(email);
-
     if (user instanceof NullUser) return null;
-
     const isPasswordValid = await bcrypt.compare(password, user.getPasswordHash());
     if (!isPasswordValid) return null;
-
     const payload = {
       id: user.getId(),
       email: user.getEmail(),
@@ -26,9 +23,7 @@ export default class LoginUseCase implements LoginUseCasePort {
       nombre: user.getNames(),
       apellido: user.getSurname()
     };
-
     const token = this.jwtRepository.generateToken(payload);
-
     return token;
   }
 }
